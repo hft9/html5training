@@ -5,6 +5,8 @@ function getLocation() {
     // The success and error callback have been already defined and are
     // respectively called "successCallback" and "errorCallback"
     
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    
 }
 
 function successCallback(pos) {
@@ -12,7 +14,7 @@ function successCallback(pos) {
     // Using the Google Maps API, we want to get a coordinate
     // The google.maps.LatLng function expects a latitude and a longitude as parameters
     // Replace xxxxxx and yyyyyy by the latitude and longitude you can obtain from the Position, pos, object
-    var myLatlng = new google.maps.LatLng(xxxxxx, yyyyyy);
+    var myLatlng = new google.maps.LatLng(pos..coords.latitude, pos.coords.longitude);
     
     var myOptions = {
         zoom: 8,
@@ -26,7 +28,7 @@ function successCallback(pos) {
     var marker = new google.maps.Marker({
         position: myLatlng, 
         map: map, 
-        title:"Accuracy of " + xxxxxx + " meters"
+        title:"Accuracy of " + pos.coords.accuracy + " meters"
     });
 }
 
